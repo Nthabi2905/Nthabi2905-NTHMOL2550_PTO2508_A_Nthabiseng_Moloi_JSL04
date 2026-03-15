@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kanban Board</title>
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/favicon.svg" />
 
-    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -30,9 +28,9 @@
       };
     </script>
 
-    <!-- Add Plus Jakarta Sans font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -46,259 +44,106 @@
   </head>
 
   <body class="bg-bg min-h-screen">
-    <!-- Mobile Layout (First as requested) -->
-    <div class="md:hidden p-6">
-      <!-- Header for Mobile -->
-      <div class="flex items-center justify-between mb-8">
-        <div class="flex items-center gap-4">
-          <div class="flex gap-1">
-            <span class="w-2 h-6 bg-primary rounded"></span>
-            <span class="w-2 h-6 bg-primary/70 rounded"></span>
-            <span class="w-2 h-6 bg-primary/40 rounded"></span>
-          </div>
-          <h2 class="text-2xl font-bold text-gray-900">Launch Career</h2>
-        </div>
+    <!-- HEADER -->
+    <div class="flex items-center justify-between p-8">
+      <h2 class="text-2xl font-bold">Launch Career</h2>
 
-        <!-- Add New Task Button for Mobile -->
-        <button
-          class="bg-primary text-white font-bold w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary/90 transition-colors shadow-md hover:shadow-lg"
-        >
-          +
-        </button>
-      </div>
+      <button
+        class="bg-primary text-white font-bold px-6 py-3 rounded-full hover:bg-primary/90"
+      >
+        + Add New Task
+      </button>
+    </div>
 
-      <!-- TODO Column for Mobile -->
-      <section class="mb-12">
+    <!-- BOARD -->
+    <div class="flex gap-6 px-8 flex-col md:flex-row">
+      <!-- TODO -->
+      <div class="flex-1 min-w-[280px]">
         <div class="flex items-center gap-3 mb-6">
           <span class="w-3 h-3 rounded-full bg-todo"></span>
           <h4 class="text-sm tracking-widest text-textMuted font-semibold">
             TODO (<span id="todo-count">0</span>)
           </h4>
         </div>
-        <div id="todo-column" class="space-y-4">
-          <div
-            class="bg-card p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition-shadow"
-          >
-            <h3 class="font-bold text-lg mb-2">Launch Epic Career 🚀</h3>
-          </div>
-          <div
-            class="bg-card p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition-shadow"
-          >
-            <h3 class="font-bold text-lg mb-2">Conquer React ⚛️</h3>
-          </div>
-          <div
-            class="bg-card p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition-shadow"
-          >
-            <h3 class="font-bold text-lg mb-2">Understand Databases 🔍</h3>
-          </div>
-          <div
-            class="bg-card p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition-shadow"
-          >
-            <h3 class="font-bold text-lg mb-2">Crush Frameworks 📈</h3>
-          </div>
-        </div>
-      </section>
 
-      <!-- DOING Column for Mobile -->
-      <section class="mb-12">
+        <div id="todo-column" class="space-y-4"></div>
+      </div>
+
+      <!-- DOING -->
+      <div class="flex-1 min-w-[280px]">
         <div class="flex items-center gap-3 mb-6">
           <span class="w-3 h-3 rounded-full bg-doing"></span>
+
           <h4 class="text-sm tracking-widest text-textMuted font-semibold">
             DOING (<span id="doing-count">0</span>)
           </h4>
         </div>
-        <div id="doing-column" class="space-y-4">
-          <div
-            class="bg-card p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition-shadow"
-          >
-            <h3 class="font-bold text-lg mb-2">Master JavaScript 💛</h3>
-          </div>
-          <div
-            class="bg-card p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition-shadow"
-          >
-            <h3 class="font-bold text-lg mb-2">Never Give Up 🏆</h3>
-          </div>
-        </div>
-      </section>
-    </div>
 
-    <!-- Desktop Layout -->
-    <div class="hidden md:flex min-h-screen">
-      <!-- Fixed Sidebar -->
-      <div class="w-64 bg-white p-6 border-r border-gray-200 flex-shrink-0">
-        <!-- Logo -->
-        <div class="flex items-center gap-3 mb-10">
-          <div class="flex gap-1">
-            <span class="w-2 h-6 bg-primary rounded"></span>
-            <span class="w-2 h-6 bg-primary/70 rounded"></span>
-            <span class="w-2 h-6 bg-primary/40 rounded"></span>
-          </div>
-          <h1 class="text-3xl font-bold text-gray-900">kanban</h1>
-        </div>
-
-        <!-- ALL BOARDS Section -->
-        <div class="mb-8">
-          <h3
-            class="text-xs font-bold tracking-widest text-textMuted uppercase mb-4"
-          >
-            ALL BOARDS (1)
-          </h3>
-          <div class="space-y-2">
-            <div
-              class="flex items-center gap-3 p-3 bg-primary text-white rounded-r-full cursor-pointer hover:bg-primary/90 transition-colors"
-            >
-              <span class="font-bold">Launch Career</span>
-            </div>
-          </div>
-        </div>
+        <div id="doing-column" class="space-y-4"></div>
       </div>
 
-      <!-- Main Content Area -->
-      <div class="flex-1 p-8 overflow-x-auto">
-        <!-- Header -->
-        <div class="flex items-center justify-between mb-8">
-          <h2 class="text-2xl font-bold text-gray-900">Launch Career</h2>
-          <!-- Add New Task Button for Desktop -->
-          <button
-            class="bg-primary text-white font-bold px-6 py-3 rounded-full hover:bg-primary/90 transition-colors"
-          >
-            + Add New Task
-          </button>
+      <!-- DONE -->
+      <div class="flex-1 min-w-[280px]">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-3 h-3 rounded-full bg-done"></span>
+
+          <h4 class="text-sm tracking-widest text-textMuted font-semibold">
+            DONE (<span id="done-count">0</span>)
+          </h4>
         </div>
 
-        <!-- Columns Container -->
-        <div class="flex gap-6">
-          <!-- TODO Column -->
-          <div class="flex-1 min-w-[280px]">
-            <div class="flex items-center gap-3 mb-6">
-              <span class="w-3 h-3 rounded-full bg-todo"></span>
-              <h4 class="text-sm tracking-widest text-textMuted font-semibold">
-                TODO (<span id="todo-count">0</span>)
-              </h4>
-            </div>
-            <div id="todo-column" class="space-y-4">
-              <div
-                class="bg-card p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition-shadow"
-              >
-                <h3 class="font-bold text-lg mb-2">Launch Epic Career 🚀</h3>
-              </div>
-              <div
-                class="bg-card p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition-shadow"
-              >
-                <h3 class="font-bold text-lg mb-2">Conquer React ⚛️</h3>
-              </div>
-              <div
-                class="bg-card p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition-shadow"
-              >
-                <h3 class="font-bold text-lg mb-2">Understand Databases 🔍</h3>
-              </div>
-              <div
-                class="bg-card p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition-shadow"
-              >
-                <h3 class="font-bold text-lg mb-2">Crush Frameworks 📈</h3>
-              </div>
-            </div>
-          </div>
-
-          <!-- DOING Column -->
-          <div class="flex-1 min-w-[280px]">
-            <div class="flex items-center gap-3 mb-6">
-              <span class="w-3 h-3 rounded-full bg-doing"></span>
-              <h4 class="text-sm tracking-widest text-textMuted font-semibold">
-                DOING (<span id="doing-count">0</span>)
-              </h4>
-            </div>
-            <div id="doing-column" class="space-y-4">
-              <div
-                class="bg-card p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition-shadow"
-              >
-                <h3 class="font-bold text-lg mb-2">Master JavaScript 💛</h3>
-              </div>
-              <div
-                class="bg-card p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition-shadow"
-              >
-                <h3 class="font-bold text-lg mb-2">Never Give Up 🏆</h3>
-              </div>
-            </div>
-          </div>
-
-          <!-- DONE Column -->
-          <div class="flex-1 min-w-[280px]">
-            <div class="flex items-center gap-3 mb-6">
-              <span class="w-3 h-3 rounded-full bg-done"></span>
-              <h4 class="text-sm tracking-widest text-textMuted font-semibold">
-                DONE (<span id="done-count">0</span>)
-              </h4>
-            </div>
-            <div id="done-column" class="space-y-4">
-              <div
-                class="bg-card p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition-shadow"
-              >
-                <h3 class="font-bold text-lg mb-2">Explore ES6 Features 🚀</h3>
-              </div>
-              <div
-                class="bg-card p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition-shadow"
-              >
-                <h3 class="font-bold text-lg mb-2">Have fun 🥳</h3>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div id="done-column" class="space-y-4"></div>
       </div>
     </div>
-    <script src="scripts.js"></script>
-    <!-- TASK MODAL -->
+
+    <!-- MODAL -->
     <div
       id="task-modal"
-      class="fixed inset-0 bg-black/50 hidden items-center justify-center p-6"
+      class="fixed inset-0 bg-black/50 hidden items-center justify-center"
     >
-      <div class="bg-white w-full max-w-lg rounded-xl p-8 relative">
-        <!-- CLOSE BUTTON -->
+      <div class="bg-white w-full max-w-md rounded-xl p-8 relative">
         <button
-          id="close-modal"
-          class="absolute top-6 right-6 text-red text-2xl font-bold"
+          id="close-modal-btn"
+          class="absolute top-4 right-4 text-red text-xl font-bold"
         >
-          ✕
+          &times;
         </button>
 
-        <!-- TITLE -->
-        <h2 class="text-2xl font-bold mb-8">Task</h2>
+        <h2 class="text-xl font-bold mb-6">Task</h2>
 
-        <!-- TITLE INPUT -->
-        <label class="text-sm text-textMuted font-semibold">Title</label>
+        <label class="text-sm text-gray-500">Title</label>
+
         <input
-          id="task-title"
           type="text"
-          class="w-full border border-gray-200 rounded-lg p-3 mt-2 mb-6"
+          id="task-title"
+          class="w-full border rounded p-2 mb-4"
         />
 
-        <!-- DESCRIPTION -->
-        <label class="text-sm text-textMuted font-semibold">Description</label>
+        <label class="text-sm text-gray-500">Description</label>
+
         <textarea
           id="task-desc"
           rows="4"
-          class="w-full border border-gray-200 rounded-lg p-3 mt-2 mb-6"
+          class="w-full border rounded p-2 mb-4"
         ></textarea>
 
-        <!-- STATUS -->
-        <label class="text-sm text-textMuted font-semibold">Status</label>
-        <select
-          id="task-status"
-          class="w-full border border-gray-200 rounded-lg p-3 mt-2 mb-8"
-        >
+        <label class="text-sm text-gray-500">Status</label>
+
+        <select id="task-status" class="w-full border rounded p-2 mb-6">
           <option value="todo">todo</option>
           <option value="doing">doing</option>
           <option value="done">done</option>
         </select>
 
-        <!-- CREATE TASK BUTTON -->
         <button
-          id="save-task"
-          class="w-full bg-primary text-white font-bold py-4 rounded-full hover:bg-primary/90 transition"
+          id="save-task-btn"
+          class="bg-primary text-white w-full py-3 rounded-full"
         >
-          Create Task
+          Save Changes
         </button>
       </div>
     </div>
+
+    <script src="scripts.js"></script>
   </body>
 </html>
